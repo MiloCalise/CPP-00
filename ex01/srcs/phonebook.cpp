@@ -6,7 +6,7 @@
 /*   By: miltavar <miltavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:08:17 by miltavar          #+#    #+#             */
-/*   Updated: 2025/11/27 15:12:20 by miltavar         ###   ########.fr       */
+/*   Updated: 2025/11/28 11:24:16 by miltavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 Phonebook::Phonebook(void)
 {
 	_index = 0;
+	_count = 0;
 }
 
 Phonebook::~Phonebook(void)
 {
-
 }
 
 int	strtoint(std::string str)
@@ -44,6 +44,8 @@ void	Phonebook::add_contact(void)
 		return ;
 	contacts[_index] = newc;
 	_index = (_index + 1) % 8;
+	if (_count < 8)
+		_count++;
 }
 
 void	Phonebook::display_line(int i) const
@@ -52,25 +54,25 @@ void	Phonebook::display_line(int i) const
 
 	std::cout << "         " + inttostr(i + 1) + "|";
 	if (tmp.size() > 10)
-		std::cout << tmp.substr(0, 9) << ".";
+		std::cout << tmp.substr(0, 9) << "." << "|";
 	else
 		std::cout << std::setw(10) << tmp << "|";
 	tmp = contacts[i].get_last();
 	if (tmp.size() > 10)
-		std::cout << tmp.substr(0, 9) << ".";
+		std::cout << tmp.substr(0, 9) << "." << "|";
 	else
 		std::cout << std::setw(10) << tmp << "|";
 	tmp = contacts[i].get_nick();
 	if (tmp.size() > 10)
 		std::cout << tmp.substr(0, 9) << ".";
 	else
-		std::cout << std::setw(10) << tmp << "|";
+		std::cout << std::setw(10) << tmp;
 }
 
 void	Phonebook::display_list(void) const
 {
 	std::cout << "     index|first name| last name|    number" << std::endl;
-	for (int i = 0; i < _index; i++)
+	for (int i = 0; i < _count; i++)
 	{
 		display_line(i);
 		std::cout << std::endl;
@@ -95,7 +97,7 @@ void	Phonebook::search_contact(void) const
 	std::cout << "SEARCH: ";
 	getline(std::cin, str);
 	index = strtoint(str);
-	if (index < 1 || index > _index)
+	if (index < 1 || index > _count)
 	{
 		std::cerr << "invalid index" << std::endl;
 		return ;

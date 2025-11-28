@@ -6,7 +6,7 @@
 /*   By: miltavar <miltavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:08:07 by miltavar          #+#    #+#             */
-/*   Updated: 2025/11/27 15:11:26 by miltavar         ###   ########.fr       */
+/*   Updated: 2025/11/28 11:24:16 by miltavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class	Phonebook
 		void	display_contact(int index) const;
 		void	display_line(int i) const;
 		int	_index;
+		int	_count;
 };
 
 #endif

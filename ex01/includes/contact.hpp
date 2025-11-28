@@ -6,7 +6,7 @@
 /*   By: miltavar <miltavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:49:12 by miltavar          #+#    #+#             */
-/*   Updated: 2025/11/27 14:46:23 by miltavar         ###   ########.fr       */
+/*   Updated: 2025/11/27 17:39:11 by miltavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-#include "phonebook.hpp"
 
 class	Contact
 {

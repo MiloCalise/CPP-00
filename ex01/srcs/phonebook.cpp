@@ -6,7 +6,7 @@
 /*   By: miltavar <miltavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:08:17 by miltavar          #+#    #+#             */
-/*   Updated: 2025/11/28 11:24:16 by miltavar         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:44:17 by miltavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,11 @@ void	Phonebook::search_contact(void) const
 	display_list();
 	std::cout << "SEARCH: ";
 	getline(std::cin, str);
+	if (str.empty())
+	{
+		std::cerr << "invalid index" << std::endl;
+		return ;
+	}
 	index = strtoint(str);
 	if (index < 1 || index > _count)
 	{
